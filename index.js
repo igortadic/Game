@@ -62,17 +62,10 @@ console.log(player);
 
 const keys = {
   a: {
-<<<<<<< HEAD
     pressed: false
   },
   d: {
     pressed: false
-=======
-    pressed: false;
-  },
-  d: {
-    pressed: false;
->>>>>>> e1da9b8f61ab67b59da00c1bd8c7f1df825110bb
   }
 }
 
@@ -95,17 +88,10 @@ animate();
 window.addEventListener('keydown', (event) => {
   switch(event.key) {
     case 'd':
-<<<<<<< HEAD
       keys.d.pressed = true
     break
     case 'a':
       keys.a.pressed = true
-=======
-      keys.d.pressed = True;
-    break
-    case 'a':
-      keys.a.pressed = True;
->>>>>>> e1da9b8f61ab67b59da00c1bd8c7f1df825110bb
     break
   }
   console.log(event.key)
@@ -114,17 +100,10 @@ window.addEventListener('keydown', (event) => {
 window.addEventListener('keyup', (event) => {
   switch(event.key) {
     case 'd':
-<<<<<<< HEAD
       keys.d.pressed =  false
     break
     case 'a':
       keys.a.pressed = false
-=======
-      keys.d.pressed = False;
-    break
-    case 'a':
-      keys.a.pressed = False;
->>>>>>> e1da9b8f61ab67b59da00c1bd8c7f1df825110bb
     break
   }
   console.log(event.key)
