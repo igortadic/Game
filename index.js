@@ -20,6 +20,7 @@ class Sprite {
        width: 100,
        height: 50
      }
+     this.isAttacking
      this.color = color
    }
 
@@ -42,7 +43,14 @@ class Sprite {
      } else {
        this.velocity.y += gravity;
      }
-   }
+    }
+
+    attack() {
+      this.isAttacking = true
+      setTimeout(() => {
+        this.isAttacking = false
+      }, 100)
+    }
 }
 
 const player = new Sprite({
@@ -117,7 +125,8 @@ function animate() {
 
   // detect for collision
   if(player.attackBox.position.x + player.attackBox.width >= enemy.position.x
-  && player.attackBox.position.x <= enemy.position.x + enemy.width) {
+  && player.attackBox.position.x <= enemy.position.x + enemy.width && player.attackBox.position.y + player.attackBox.height >= enemy.position.y
+  && player.attackBox.position.y <= enemy.position.y + enemy.height && player.isAttacking) {
     console.log("go");
   }
 }
@@ -137,6 +146,9 @@ window.addEventListener('keydown', (event) => {
     break
     case 'w':
       player.velocity.y = -20
+    break
+    case ' ':
+      player.attack();
     break
     case 'ArrowRight':
       keys.ArrowRight.pressed = true
