@@ -41,7 +41,7 @@ class Sprite {
 
 }
 
-class Fighter {
+class Fighter extends Sprite {
    constructor({position, velocity, color = 'red', offset}) {
      this.position = position;
      this.velocity = velocity;
@@ -60,18 +60,6 @@ class Fighter {
      this.isAttacking
      this.color = color
      this.health = 100;
-   }
-
-   draw() {
-     c.fillStyle = this.color;
-     c.fillRect(this.position.x, this.position.y, this.width, this.height);
-
-     // attackBox
-     if (this.isAttacking) {
-       c.fillStyle = 'green';
-       c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
-     }
-
    }
 
    update() {
