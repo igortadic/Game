@@ -11,7 +11,7 @@ const gravity = .9;
 const player = new Fighter({
     position: {
     x: 100,
-    y: 0
+    y: 300
   },
   velocity: {
     x: 0,
@@ -25,7 +25,7 @@ const player = new Fighter({
   framesMax: 8,
   scale: 2.5,
   offset: {
-    x: 50,
+    x: 215,
     y: 155
   }
 });
@@ -95,7 +95,7 @@ function animate() {
   background.update();
   shop.update();
   player.update();
-  enemy.update();
+  //enemy.update();
 
   player.velocity.x = 0
   enemy.velocity.x = 0
