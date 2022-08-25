@@ -9,7 +9,7 @@ class Sprite {
      this.framesMax = framesMax
      this.framesCurrent = 0
      this.framesElapsed = 0
-     this.framesHold = 10
+     this.framesHold = 1
    }
 
    draw() {
@@ -21,27 +21,24 @@ class Sprite {
        this.image.height,
        this.position.x,
        this.position.y,
-       (this.image.width / this.framesMax)* this.scale,
-       this.image.height * this.scale
+       (this.image.width / this.framesMax) * this.scale,
+       this.image.height * this.scale,
      )
    }
 
-
    update() {
      this.draw()
-     this.framesElapsed++
-     if(this.framesElapsed % this.framesHold === 0) {
-       if (this.frameCurrent < this.framesMax - 1) {
-         this.framesCurrent++
-       } else {
-         this.framesCurrent = 0
-       }
+     if (this.framesCurrent < this.framesMax) {
+       this.framesCurrent++
+     } else {
+       this.framesCurrent = 0
      }
+
     }
 
 }
 
-class Fighter extends Sprite {
+class Fighter {
    constructor({position, velocity, color = 'red', offset}) {
      this.position = position;
      this.velocity = velocity;
@@ -60,6 +57,18 @@ class Fighter extends Sprite {
      this.isAttacking
      this.color = color
      this.health = 100;
+   }
+
+   draw() {
+     c.fillStyle = this.color;
+     c.fillRect(this.position.x, this.position.y, this.width, this.height);
+
+     // attackBox
+     if (this.isAttacking) {
+       c.fillStyle = 'green';
+       c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
+     }
+
    }
 
    update() {
